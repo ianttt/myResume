@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>魏建国个人简历</title>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<style type="text/css">
+	*{margin: 0;padding: 0;}
+	body{background:linear-gradient(-45deg,#33ff00,#ce86e0,#00a4ff);}
+	ul{font-size:45px;}
+	th{text-align: center;}
+	#head{height: 80px;width: 100%;text-align: center;}
+	#body{height: 500px;width: 100%;position: relative;}
+	
+	#foot{height: 80px;width: 100%;}
+	#b-left{width: 32%;height: 100%;}
+	#b-right{width: 65%;height: 100%; border:3px solid #000;position:absolute;margin-left:250px;margin-top: -500px;}
+
+</style>
+<script type="text/javascript">
+	function information() {
+		$.ajax({
+			type:'post',
+			url:"/information",
+			data:{"information":"information"},
+			
+			success:function(data){
+				//console.log(data);
+				//var result = data;
+				var objjson=eval(data);
+				console.log(objjson);
+				//var request={};
+				//request.name=$(".name").val();
+				//console.log(request.name);
+				var text=document.getElementById("name").innerText=objjson.name;
+				var text1=document.getElementById("gender").innerText=objjson.gender;
+				var text2=document.getElementById("education").innerText=objjson.education;
+				var text3=document.getElementById("school").innerText=objjson.school;
+				var text4=document.getElementById("major").innerText=objjson.major;
+				//console.log(text);
+			}
+			
+		})
+	}
+	
+	function skill() {
+		$.ajax({
+			type:'post',
+			url:"skill",
+			data:{"skill":"skill"},
+			
+			success:function(data){
+				var text=document.getElementById("skill").innerText=data;
+				console.log(data);
+			}
+			
+		})
+	}
+	
+	function project() {
+		$.ajax({
+			type:'post',
+			url:"project",
+			data:{"project":"project"},
+			
+			success:function(data){
+				var text=document.getElementById("project").innerText=data;
+				
+				console.log(data);
+				//var txt3=document.createElement("a");
+				//txt3.setAttribute("href","180013k5p1.iask.in/robotdemo");
+				//container.appendChild(txt3);
+			}
+			
+		})
+	}
+	function inschool() {
+		$.ajax({
+			type:'post',
+			url:"inSchool",
+			data:{"inSchool":"inSchool"},
+			
+			success:function(data){
+				var text=document.getElementById("inschool").innerText=data;
+				console.log(data);
+			}
+			
+		})
+	}
+</script>
+</head>
+
+<body>
+<div id="head"><h1>魏建国个人简历</h></div>
+<div id="body">
+	<div id="b-left">
+	<ul>
+		<li onclick="information()">基本信息</li>
+		<li onclick="skill()">专业技能</li>
+		<li onclick="project()">项目经验</li>
+		<li onclick="inschool()">学校经历</li>
+	</ul>
+	</div>
+	<div id="b-right">
+		<table>
+		<th >个人概况</th>
+		<tr>
+			<td>姓名：</td><td id="name"></td>
+		</tr>
+		<tr>
+			<td>性别：</td><td id="gender"></td>
+		</tr>
+		<tr>
+			<td>学历：</td><td id="education"></td>
+		</tr>
+		<tr>
+			<td>毕业院校：</td><td id="school"></td>
+		</tr>
+		<tr>
+			<td>专业：</td><td id="major"></td>
+		</tr>
+		<th>专业技能</th>
+		<tr>
+			<td><p id="skill"></p></td>
+		</tr>
+		<th>项目经验</th>
+		<tr>
+			<td><p id="project"></td>
+		</tr>
+		
+		<th>学校经历</th>
+		<tr>
+			<td><p id="inschool"></p></td>
+		</tr>
+		
+		</table>
+		<a href="http://180013k5p1.iask.in/robotdemo" target="_blank">我的作品</a>
+		
+	</div>
+
+</div>
+<div id="foot"><p>看上我就带我上路18435156672</p></div>
+
+</body>
+</html>
